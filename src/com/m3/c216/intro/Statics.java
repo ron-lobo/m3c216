@@ -34,7 +34,11 @@ public class Statics {
         statics2.printout("statics2");
     }
 
-    private void printout(String user) {
-        System.out.printf("user=%s: i=%d d=%f s1=%s s2=%s %n", user, i, d, s1, s2);
+    public void printout(String user) {
+        System.out.println(getFormattedString(user));
+    }
+
+    public String getFormattedString(String user) {
+        return String.format("user=%s: i=%d d=%f s1=%s s2=%s %n", user, i, d, s1, s2);
     }
 }
