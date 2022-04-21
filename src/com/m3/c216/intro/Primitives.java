@@ -29,6 +29,14 @@ public class Primitives {
         i1 = i0;
         i0--;
         System.out.printf("i0=%d, i1=%d%n", i0, i1);
+
+        Integer i2 = method2(i0, i1);
+        int i3 = method2(i1, i0);
+        System.out.printf("i2=%d, i3=%d%n", i2, i3);
+    }
+
+    static Integer method2(int a, Integer b) {
+        return a + b;
     }
 
     private static void method1() {
