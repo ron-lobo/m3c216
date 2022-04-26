@@ -33,6 +33,6 @@ public class VehicleUser {
     }
 
     public static void showVehicle(Vehicle v) {
-        System.out.printf("v1: %s %s %s %d kmh%n", v.getMake(), v.getModel(), v.getColour(), v.getSpeedKMH());
+        System.out.printf("%s %s %s %d kmh%n", v.getMake(), v.getModel(), v.getColour(), v.getSpeedKMH());
     }
 }
