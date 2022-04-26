@@ -35,7 +35,7 @@ public class Primitives {
         System.out.printf("i2=%d, i3=%d%n", i2, i3);
     }
 
-    static Integer method2(int a, Integer b) {
+    private static Integer method2(int a, Integer b) {
         return a + b;
     }
 
