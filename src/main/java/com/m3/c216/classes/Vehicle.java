@@ -2,7 +2,7 @@ package com.m3.c216.classes;
 
 public class Vehicle {
 
-    public final String make;
+    private final String make;
     private final String model;
     private String colour;
     private int speedKMH;
