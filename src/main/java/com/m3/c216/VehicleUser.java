@@ -16,8 +16,23 @@ public class VehicleUser {
         vehicle2.setModel("Golf");
         vehicle2.setColour("black");
 
-        System.out.printf("v1: %s %s %s %n", vehicle1.getMake(), vehicle1.getModel(), vehicle1.getColour());
-        System.out.printf("v2: %s %s %s %n", vehicle2.getMake(), vehicle2.getModel(), vehicle2.getColour());
+        showVehicle(vehicle1);
+        showVehicle(vehicle2);
+
+        vehicle1.accelerate(3);
+        vehicle2.accelerate(10);
+
+        showVehicle(vehicle1);
+        showVehicle(vehicle2);
+
+        vehicle1.brake(2, false);
+        vehicle2.brake(1, true);
+
+        showVehicle(vehicle1);
+        showVehicle(vehicle2);
     }
 
+    public static void showVehicle(Vehicle v) {
+        System.out.printf("v1: %s %s %s %d kmh%n", v.getMake(), v.getModel(), v.getColour(), v.getSpeedKMH());
+    }
 }
