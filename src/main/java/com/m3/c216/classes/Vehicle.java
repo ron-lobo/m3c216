@@ -2,13 +2,20 @@ package com.m3.c216.classes;
 
 public class Vehicle {
 
-    private String make;
-    private String model;
+    public final String make;
+    private final String model;
     private String colour;
     private int speedKMH;
 
-    public Vehicle() {
+    public Vehicle(String make, String model) {
+        this(make, model, null);
+    }
+
+    public Vehicle(String make, String model, String colour) {
         System.out.println("creating a new Vehicle");
+        this.make = make;
+        this.model = model;
+        this.colour = colour;
     }
 
     public int accelerate(double d) {
@@ -25,14 +32,11 @@ public class Vehicle {
         return speedKMH;
     }
 
-
-    public void setMake(String m) {
-        make = m;
+    @Override
+    public String toString() {
+        return String.format("%s %s %s %d kmh", make, getModel(), getColour(), getSpeedKMH());
     }
 
-    public void setModel(String model) {
-        this.model = model;
-    }
 
     public void setColour(String colour) {
         this.colour = colour;
