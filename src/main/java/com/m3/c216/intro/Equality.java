@@ -36,9 +36,13 @@ public class Equality {
         System.out.println();
 
         Vehicle vehicle = equality.vehicles.get(0);
+        Vehicle vehicle1 = new Vehicle("Ford", "Fiesta");
+        Vehicle vehicle2 = new Vehicle("Renault", "5");
         System.out.println(vehicle);
         System.out.println("null comparison: " + vehicle.equals(null));
         System.out.println("String comparison: " + vehicle.equals("123"));
         System.out.println("same obj comparison: " + vehicle.equals(vehicle));
+        System.out.println("Fiesta comparison: " + vehicle.equals(vehicle1));
+        System.out.println("R5 comparison: " + vehicle.equals(vehicle2));
     }
 }

@@ -29,6 +29,7 @@ public class Vehicle {
         } else {
             speedKMH -= d * 10;
         }
+        if (speedKMH < 0) speedKMH = 0;
         return speedKMH;
     }
 
@@ -52,10 +53,14 @@ public class Vehicle {
             return true;
         }
         Vehicle v = (Vehicle) obj;
-        return v.getMake().equals(getMake())
-                && v.getModel().equals(getModel())
-                && v.getColour().equals(getColour())
+        return isEqual(v.make, make) &&
+                isEqual(v.model, model) &&
+                isEqual(v.colour, colour)
                 && v.numDoors == numDoors;
+    }
+
+    private boolean isEqual(String s1, String s2) {
+        return (s1 == null && s2 == null) || (s1 != null && s1.equals(s2));
     }
 
 
