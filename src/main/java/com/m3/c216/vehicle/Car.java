@@ -1,21 +1,28 @@
 package com.m3.c216.vehicle;
 
+import java.util.Objects;
+
 public class Car {
 
     private final String make;
     private final String model;
     private String colour;
-    private int numDoors = 0;
+    private final int numDoors;
     private int speedKMH;
 
     public Car(String make, String model) {
-        this(make, model, null);
+        this(make, model, null, 4);
     }
 
     public Car(String make, String model, String colour) {
+        this(make, model, colour, 4);
+    }
+
+    public Car(String make, String model, String colour, int numDoors) {
         this.make = make;
         this.model = model;
         this.colour = colour;
+        this.numDoors = numDoors;
     }
 
     public int accelerate(double d) {
@@ -35,7 +42,7 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Vehicle {" +
+        return "Car {" +
                 "make=" + make +
                 ", model=" + getModel() +
                 ", colour=" + colour +
@@ -53,14 +60,10 @@ public class Car {
             return true;
         }
         Car v = (Car) obj;
-        return isEqual(v.make, make) &&
-                isEqual(v.model, model) &&
-                isEqual(v.colour, colour)
+        return Objects.equals(v.make, make) &&
+                Objects.equals(v.model, model) &&
+                Objects.equals(v.colour, colour)
                 && v.numDoors == numDoors;
-    }
-
-    private boolean isEqual(String s1, String s2) {
-        return (s1 == null && s2 == null) || (s1 != null && s1.equals(s2));
     }
 
 
@@ -82,5 +85,9 @@ public class Car {
 
     public int getSpeedKMH() {
         return speedKMH;
+    }
+
+    public int getNumDoors() {
+        return numDoors;
     }
 }
