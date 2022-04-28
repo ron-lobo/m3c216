@@ -31,9 +31,6 @@ public class Engine {
 
     @Override
     public String toString() {
-        return "Engine {" +
-                "type = " + type +
-                " cc=" + cc +
-                "}";
+        return "Engine {type = " + type + " cc=" + cc + "}";
     }
 }

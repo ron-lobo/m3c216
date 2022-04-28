@@ -6,21 +6,23 @@ public class Car {
 
     private final String make;
     private final String model;
+    private Engine engine;
     private String colour;
     private final int numDoors;
     private int speedKMH;
 
     public Car(String make, String model) {
-        this(make, model, null, 4);
+        this(make, model, null);
     }
 
     public Car(String make, String model, String colour) {
-        this(make, model, colour, 4);
+        this(make, model, colour, 4, null);
     }
 
-    public Car(String make, String model, String colour, int numDoors) {
+    public Car(String make, String model, String colour, int numDoors, Engine engine) {
         this.make = make;
         this.model = model;
+        this.engine = engine;
         this.colour = colour;
         this.numDoors = numDoors;
     }
@@ -45,6 +47,7 @@ public class Car {
         return "Car {" +
                 "make=" + make +
                 ", model=" + getModel() +
+                ", engine=" + engine +
                 ", colour=" + colour +
                 ", numDoors=" + numDoors +
                 ", speedKML=" + speedKMH +
@@ -62,10 +65,15 @@ public class Car {
         Car v = (Car) obj;
         return Objects.equals(v.make, make) &&
                 Objects.equals(v.model, model) &&
+                Objects.equals(v.engine, engine) &&
                 Objects.equals(v.colour, colour)
                 && v.numDoors == numDoors;
     }
 
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
 
     public void setColour(String colour) {
         this.colour = colour;
@@ -77,6 +85,10 @@ public class Car {
 
     public String getModel() {
         return model;
+    }
+
+    public Engine getEngine() {
+        return engine;
     }
 
     public String getColour() {
