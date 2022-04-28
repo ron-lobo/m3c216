@@ -1,6 +1,6 @@
-package com.m3.c216.classes;
+package com.m3.c216.vehicle;
 
-public class Vehicle {
+public class Car {
 
     private final String make;
     private final String model;
@@ -8,11 +8,11 @@ public class Vehicle {
     private int numDoors = 0;
     private int speedKMH;
 
-    public Vehicle(String make, String model) {
+    public Car(String make, String model) {
         this(make, model, null);
     }
 
-    public Vehicle(String make, String model, String colour) {
+    public Car(String make, String model, String colour) {
         this.make = make;
         this.model = model;
         this.colour = colour;
@@ -52,7 +52,7 @@ public class Vehicle {
         if (obj == this) {
             return true;
         }
-        Vehicle v = (Vehicle) obj;
+        Car v = (Car) obj;
         return isEqual(v.make, make) &&
                 isEqual(v.model, model) &&
                 isEqual(v.colour, colour)

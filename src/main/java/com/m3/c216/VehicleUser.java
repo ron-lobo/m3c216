@@ -1,33 +1,33 @@
 package com.m3.c216;
 
-import com.m3.c216.classes.Vehicle;
+import com.m3.c216.vehicle.Car;
 
 public class VehicleUser {
 
     public static void main(String[] args) {
-        Vehicle vehicle1 = new Vehicle("Ford", "Escort", "blue");
-        Vehicle vehicle2 = new Vehicle("VW", "Golf", "black");
+        Car car1 = new Car("Ford", "Escort", "blue");
+        Car car2 = new Car("VW", "Golf", "black");
 
-        showVehicles(vehicle1, vehicle2);
+        showVehicles(car1, car2);
 
-        vehicle1.accelerate(3);
-        vehicle2.accelerate(10);
+        car1.accelerate(3);
+        car2.accelerate(10);
 
-        showVehicles(vehicle1, vehicle2);
+        showVehicles(car1, car2);
 
-        vehicle1.brake(2, false);
-        vehicle2.brake(1, true);
+        car1.brake(2, false);
+        car2.brake(1, true);
 
-        Vehicle vehicle3 = new Vehicle("Volvo", "Tank");
-        vehicle3.setColour("Pink");
+        Car car3 = new Car("Volvo", "Tank");
+        car3.setColour("Pink");
 
-        showVehicles(vehicle1, vehicle2, vehicle3);
+        showVehicles(car1, car2, car3);
     }
 
-    private static void showVehicles(Vehicle... vehicles) {
+    private static void showVehicles(Car... cars) {
         System.out.println("Vehicle Status");
-        for (Vehicle vehicle : vehicles) {
-            System.out.println("  " + vehicle);
+        for (Car car : cars) {
+            System.out.println("  " + car);
         }
         System.out.println();
     }
