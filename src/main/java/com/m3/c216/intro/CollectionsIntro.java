@@ -13,6 +13,8 @@ public class CollectionsIntro {
     private Engine e5 = new Engine("s", 4, 1600);
     private Engine e6 = new Engine("s", 6, 1600);
 
+    final List<String> CONSTLIST = List.of("123", "xyz");
+
 
     public static void main(String[] args) {
         CollectionsIntro ci = new CollectionsIntro();
@@ -20,6 +22,7 @@ public class CollectionsIntro {
         ci.lists();
         ci.sets();
         ci.maps();
+        ci.maps2();
         // queue
         ci.collections();
     }
@@ -29,29 +32,28 @@ public class CollectionsIntro {
 
 //        List<Integer> values = List.of(3, 1, 4, 1, 5, 9, 2, 6, 5, 3);
 
-        List<Integer> values = new ArrayList();
+        List<Integer> values = new ArrayList<>();
         values.addAll(List.of(3, 1, 4, 1, 5, 9, 2, 6, 5, 3));
         System.out.println(values);
         Collections.sort(values);
         System.out.println(values);
 
-        List<Engine> engines = new ArrayList<>();
-        engines.add(e1);
-        engines.add(e2);
-        engines.add(e3);
-        engines.add(e4);
+        List<Engine> engines = new ArrayList<>(List.of(e1, e2, e3, e4));
         engines.add(e5);
         engines.add(e6);
+
         System.out.println("engines: " + engines);
         Collections.sort(engines);
         System.out.println("engines sorted order:" + engines);
         Collections.reverse(engines);
         System.out.println("engines reverse order: " + engines);
+        Collections.shuffle(engines);
+        System.out.println("engines random order: " + engines);
 
         MyEngineComparator myEC = new MyEngineComparator();
-        Collections.sort(engines, myEC);
+        // Collections.sort(engines, myEC);
+        engines.sort(myEC);
         System.out.println("engines myEC order: " + engines);
-
     }
 
     public void maps() {
@@ -73,7 +75,24 @@ public class CollectionsIntro {
         myMap.remove("Snape", e3);
         myMap.remove("Minerva");
         showMap(myMap);
+    }
 
+    private void maps2() {
+        System.out.println("\nMaps2");
+        Map<Integer, Double> myMap = new HashMap<>();
+        Random r = new Random();
+        int numItems = 10000000;
+        for (int i = 0; i < numItems; i++) {
+            myMap.put(i, r.nextDouble());
+        }
+        System.out.println("map populated: " + myMap.size());
+        long s0 = System.nanoTime();
+        for (int i = 0; i < 10; i++) {
+            int key = r.nextInt(numItems - 1);
+            System.out.printf(" key=%d value=%f%n", key, myMap.get(key));
+        }
+        long s1 = System.nanoTime();
+        System.out.println("duration: " + (s1 - s0) / 1000000 + " millis");
     }
 
     private void showMap(Map<String, Engine> map) {
