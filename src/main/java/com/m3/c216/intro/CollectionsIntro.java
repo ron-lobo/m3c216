@@ -81,18 +81,27 @@ public class CollectionsIntro {
         System.out.println("\nMaps2");
         Map<Integer, Double> myMap = new HashMap<>();
         Random r = new Random();
-        int numItems = 10000000;
+        int numItems = 1_000_000, numRetrieve = 10;
+
+        long s0 = System.nanoTime();
         for (int i = 0; i < numItems; i++) {
             myMap.put(i, r.nextDouble());
         }
-        System.out.println("map populated: " + myMap.size());
-        long s0 = System.nanoTime();
-        for (int i = 0; i < 10; i++) {
-            int key = r.nextInt(numItems - 1);
-            System.out.printf(" key=%d value=%f%n", key, myMap.get(key));
-        }
         long s1 = System.nanoTime();
-        System.out.println("duration: " + (s1 - s0) / 1000000 + " millis");
+        showTime("map populated", s0, s1, numItems);
+
+        s0 = System.nanoTime();
+        for (int i = 0; i < numRetrieve; i++) {
+            int key = r.nextInt(numItems - 1);
+            myMap.get(key);
+            //System.out.printf(" key=%d value=%f%n", key, myMap.get(key));
+        }
+        s1 = System.nanoTime();
+        showTime("map retrieval", s0, s1, numRetrieve);
+    }
+
+    public static void showTime(String txt, long s, long e, int num) {
+        System.out.printf("%s: avg = %d nanos%n", txt, (e - s) / num);
     }
 
     private void showMap(Map<String, Engine> map) {
