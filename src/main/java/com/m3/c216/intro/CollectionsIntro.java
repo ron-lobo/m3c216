@@ -6,9 +6,12 @@ import java.util.*;
 
 public class CollectionsIntro {
 
-    private Engine e1 = new Engine("v8", 2400);
-    private Engine e2 = new Engine("s6", 2000);
-    private Engine e3 = new Engine("v12", 3000);
+    private Engine e1 = new Engine("S", 8, 2400);
+    private Engine e2 = new Engine("s", 6, 2000);
+    private Engine e3 = new Engine("v", 12, 3000);
+    private Engine e4 = new Engine("s", 6, 2200);
+    private Engine e5 = new Engine("s", 4, 1600);
+    private Engine e6 = new Engine("s", 6, 1600);
 
 
     public static void main(String[] args) {
@@ -17,11 +20,44 @@ public class CollectionsIntro {
         ci.lists();
         ci.sets();
         ci.maps();
+        // queue
+        ci.collections();
+    }
+
+    public void collections() {
+        System.out.println("\nCollections class");
+
+//        List<Integer> values = List.of(3, 1, 4, 1, 5, 9, 2, 6, 5, 3);
+
+        List<Integer> values = new ArrayList();
+        values.addAll(List.of(3, 1, 4, 1, 5, 9, 2, 6, 5, 3));
+        System.out.println(values);
+        Collections.sort(values);
+        System.out.println(values);
+
+        List<Engine> engines = new ArrayList<>();
+        engines.add(e1);
+        engines.add(e2);
+        engines.add(e3);
+        engines.add(e4);
+        engines.add(e5);
+        engines.add(e6);
+        System.out.println("engines: " + engines);
+        Collections.sort(engines);
+        System.out.println("engines sorted order:" + engines);
+        Collections.reverse(engines);
+        System.out.println("engines reverse order: " + engines);
+
+        MyEngineComparator myEC = new MyEngineComparator();
+        Collections.sort(engines, myEC);
+        System.out.println("engines myEC order: " + engines);
+
     }
 
     public void maps() {
         System.out.println("\nMaps");
 
+        Map<String, Set<Engine>> user2EnginesMap = new HashMap<>();
         Map<String, Engine> myMap = new HashMap<>();
         showMap(myMap);
 
@@ -37,6 +73,7 @@ public class CollectionsIntro {
         myMap.remove("Snape", e3);
         myMap.remove("Minerva");
         showMap(myMap);
+
     }
 
     private void showMap(Map<String, Engine> map) {
