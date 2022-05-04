@@ -1,5 +1,6 @@
 package com.m3.c216.intro;
 
+import com.m3.c216.vehicle.Car;
 import com.m3.c216.vehicle.Engine;
 import org.apache.commons.collections4.list.TreeList;
 
@@ -14,7 +15,8 @@ public class CollectionsIntro {
     private Engine e5 = new Engine("s", 4, 1600);
     private Engine e6 = new Engine("s", 6, 1600);
 
-    final List<String> CONSTLIST = List.of("123", "xyz");
+    private final List<String> CONSTLIST = List.of("123", "xyz");
+    private Map<Engine, Car> engine2CarMap = new HashMap<>();
 
 
     public static void main(String[] args) {
@@ -26,6 +28,26 @@ public class CollectionsIntro {
         ci.maps2();
         // queue
         ci.collections();
+        ci.hashMapAndHashCode();
+    }
+
+    private void hashMapAndHashCode() {
+        System.out.println("\nhashMapAndHashCode");
+        populateE2CMap();
+
+        // construct engine from DB/user input
+        Engine myEngine = new Engine("V", 12, 4200);
+
+        Car c1 = engine2CarMap.get(myEngine);
+        System.out.println("car for myEngine = " + c1);
+    }
+
+    private void populateE2CMap() {
+        Engine e4200 = new Engine("V", 12, 4200);
+        Car car1 = new Car("Ford", "Escort", "blue", 2, e4200);
+        Car car2 = new Car("VW", "Golf", "black", 4, e2);
+        engine2CarMap.put(e4200, car1);
+        engine2CarMap.put(e2, car2);
     }
 
     public void collections() {

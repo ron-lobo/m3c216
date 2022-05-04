@@ -48,6 +48,25 @@ public class Engine implements Comparable<Engine> {
         return cc == e.cc && Objects.equals(type, e.type);
     }
 
+    public int hashCode_v1() {
+        return 0;
+    }
+
+    public int hashCode_v2() {
+        return cc + type.hashCode();
+    }
+
+    public int hashCode_v3() {
+        final int PRIME = 29;
+        int result = ((Integer) cc).hashCode();
+        result = result * PRIME + type.hashCode();
+        return result;
+    }
+
+    public int hashCode() {
+        return Objects.hash(cc, type);
+    }
+
     @Override
     public String toString() {
         return "Engine {type = " + type + " cc=" + cc + "}";

@@ -70,6 +70,11 @@ public class Car {
                 && v.numDoors == numDoors;
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(make, model, engine, colour, numDoors);
+    }
+
 
     public void setEngine(Engine engine) {
         this.engine = engine;
