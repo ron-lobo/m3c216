@@ -1,6 +1,7 @@
 package com.m3.c216.intro;
 
 import com.m3.c216.vehicle.Engine;
+import org.apache.commons.collections4.list.TreeList;
 
 import java.util.*;
 
@@ -145,10 +146,11 @@ public class CollectionsIntro {
 //        LinkedList<String> strings = new LinkedList<String>();  // don't do this
         List<String> strings1 = new ArrayList<>();
         List<String> strings2 = new LinkedList<>();
+        List<String> strings3 = new TreeList<>();
 
         listHelper("ArrayList", strings1);
         listHelper("LinkedList", strings2);
-
+        listHelper("TreeList", strings3);
 
         List<Integer> values = new ArrayList<>();
         values.add(123);
