@@ -55,26 +55,21 @@ public class Car {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (obj == null || obj.getClass() != getClass()) {
-            return false;
-        }
-        if (obj == this) {
-            return true;
-        }
-        Car v = (Car) obj;
-        return Objects.equals(v.make, make) &&
-                Objects.equals(v.model, model) &&
-                Objects.equals(v.engine, engine) &&
-                Objects.equals(v.colour, colour)
-                && v.numDoors == numDoors;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return numDoors == car.numDoors &&
+                make.equals(car.make) &&
+                model.equals(car.model) &&
+                Objects.equals(engine, car.engine) &&
+                Objects.equals(colour, car.colour);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(make, model, engine, colour, numDoors);
     }
-
 
     public void setEngine(Engine engine) {
         this.engine = engine;
