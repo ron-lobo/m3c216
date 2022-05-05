@@ -60,8 +60,8 @@ public class Car {
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
         return numDoors == car.numDoors &&
-                make.equals(car.make) &&
-                model.equals(car.model) &&
+                Objects.equals(make, car.make) &&
+                Objects.equals(model, car.model) &&
                 Objects.equals(engine, car.engine) &&
                 Objects.equals(colour, car.colour);
     }
