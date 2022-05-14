@@ -5,8 +5,8 @@ class Solution {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
 
-        String s = "AAAABBBCCDEFFG"; // in.nextLine();
-        System.out.println(s.chars().mapToObj(Character::toString).reduce((a, b) -> a + (b.equals(a.substring(a.length() - 1)) ? b : " " + b)));
+        String s = "AAAABBBCCDEFFG"; //in.nextLine();
+        System.out.println(s.chars().mapToObj(Character::toString).reduce((a, b) -> a + (b.equals(a.substring(a.length() - 1)) ? b : " " + b)).orElse(""));
 
 
         s = "The quick brown fox"; // in.nextLine();
